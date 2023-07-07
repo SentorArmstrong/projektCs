@@ -23,8 +23,8 @@ app.MapGet("/", async (context) =>
     var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "index.html");
     var fileContent = await File.ReadAllTextAsync(filePath);
     var collection = database.GetCollection<BsonDocument>("hoteles");
-    var filter = new BsonDocument(); // Pusty filtr - pobierze wszystkie dokumenty
-    var result = collection.Find(filter).ToList(); // Pobranie wszystkich dokumentów
+    var filter = new BsonDocument(); 
+    var result = collection.Find(filter).ToList(); 
     var html = string.Empty;
     foreach (var doc in result)
     {
@@ -34,7 +34,7 @@ app.MapGet("/", async (context) =>
         var price = doc.GetValue("price").AsString;
         var rate = doc.GetValue("rate").AsString;
 
-        // Generuj kod HTML dla każdego elementu w tablicy
+       
         html += $@"
         <a href='/{slug}'>
           <div class='hotel-item'>
@@ -245,7 +245,6 @@ app.MapPost("/rejestracja", async (context) =>
     var name = form["name"].ToString();
     var lastname = form["lastName"].ToString();
 
-    // Tworzenie nowego wpisu
     var document = new BsonDocument
 {
     { "login", username },
@@ -254,7 +253,6 @@ app.MapPost("/rejestracja", async (context) =>
     { "lastname", lastname },
     { "rights", 2 }
 };
-    // Dodawanie wpisu do tabeli
     collection.InsertOne(document);
     context.Response.Redirect("/logowanie");
 });
@@ -262,7 +260,7 @@ app.MapPost("/profil-dodawanie", async (context) =>
 {
     var collection = database.GetCollection<BsonDocument>("hoteles");
     var form = await context.Request.ReadFormAsync();
-    var profil_id = context.Request.Query["id"].ToString(); // Skonwertuj do typu string
+    var profil_id = context.Request.Query["id"].ToString(); 
     var name = form["name"].ToString();
     var slug = Regex.Replace(name, @"[^a-zA-Z0-9\s-]", "", RegexOptions.Compiled);
     slug = Regex.Replace(slug, @"\s+", "-").ToLower();
@@ -273,7 +271,6 @@ app.MapPost("/profil-dodawanie", async (context) =>
     var desc = form["desc"].ToString();
     var map = form["map"].ToString();
 
-    // Tworzenie nowego wpisu
     var document = new BsonDocument
 {
     { "name", name },
@@ -286,7 +283,6 @@ app.MapPost("/profil-dodawanie", async (context) =>
     { "map", map },
     { "profil_id", profil_id }
 };
-    // Dodawanie wpisu do tabeli
     collection.InsertOne(document);
     context.Response.Redirect("/profil?id=" + profil_id);
 });

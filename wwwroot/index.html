@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        min-height: 100vh;
+        background: linear-gradient(
+          169deg,
+          rgba(126, 18, 213, 1) 0%,
+          rgba(72, 7, 88, 1) 25%,
+          rgba(72, 7, 88, 1) 75%,
+          rgba(126, 18, 213, 1) 100%
+        );
+        font-family: "Barlow Condensed", sans-serif;
+      }
+      header {
+        width: 100%;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+      }
+      nav {
+        width: 100%;
+      }
+      nav ul {
+        margin: 0px;
+        text-decoration: none;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .menu-item a {
+        color: white;
+        display: block;
+        text-decoration: none;
+        font-size: 24px;
+        padding: 15px;
+        font-weight: 600;
+        position: relative;
+        transition: all 0.4s;
+      }
+      .menu-item a::after {
+        content: "";
+        width: 0px;
+        height: 7px;
+        background: linear-gradient(
+          90deg,
+          rgba(48, 213, 18, 1) 0%,
+          rgba(25, 88, 7, 1) 50%,
+          rgba(48, 213, 18, 1) 100%
+        );
+        position: absolute;
+        border-radius: 10px;
+        left: 50%;
+        bottom: 50%;
+        transform: translate(-50%, 350%);
+        transition: all 0.4s;
+      }
+      .menu-item a:hover {
+        color: greenyellow;
+      }
+      .menu-item a:hover::after {
+        width: 80%;
+      }
+      .header-title {
+        font-size: 30px;
+        margin-left: 50px;
+        margin-bottom: 20px;
+      }
+      .header-title h1 {
+        margin: 0px;
+      }
+      .header-title span:nth-child(1) {
+        color: #a634d3;
+        text-shadow: 3px -1px 5px black;
+        -webkit-text-stroke-color: black;
+        -webkit-text-stroke-width: 2px;
+      }
+      .header-title span:nth-child(3) {
+        color: transparent;
+        -webkit-text-stroke: #ce4bf1;
+        -webkit-text-stroke-width: 2px;
+      }
+      footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      footer hr {
+        width: 90%;
+        border: 3px solid #9a00cb;
+        margin: 40px 0 20px 0;
+        border-radius: 5px;
+      }
+      footer .footer-items {
+        color: #f5b8ff;
+        font-size: 24px;
+        text-shadow: 3px -1px 5px black;
+        padding: 5px;
+      }
+      main {
+        margin: auto;
+        width: 1100px;
+        min-height: 600px;
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        border-radius: 40px;
+        background-color: rgb(145 95 165 / 70%);
+        box-shadow: 0px 4px 10px 3px #000;
+      }
+      main hr {
+        border: 2px solid #924cb1;
+        margin-top: 30px;
+        width: 90%;
+      }
+      #filters {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        column-gap: 30px;
+      }
+      .group-filters {
+        padding: 15px 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #772687c7;
+        box-shadow: 0px 1px 10px 1px;
+      }
+      .group-filters label {
+        color: white;
+        font-size: 20px;
+        text-shadow: 4px 11px 8px black;
+      }
+      .group-filters input {
+        width: 150px;
+        height: 18px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        border-bottom: 2px solid black;
+        padding: 10px;
+        margin-top: 10px;
+        font-size: 16px;
+        color: white;
+        transition: all 0.3s;
+        text-align: center;
+      }
+      .group-filters input:focus {
+        border-bottom: 2px solid #0dd315;
+      }
+      .group-filters select {
+        width: 150px;
+        height: 34px;
+        background-color: transparent;
+        border: none;
+        outline: black;
+        font-size: 16px;
+        color: white;
+        margin-top: 16px;
+        border-bottom: 2px solid #000;
+        text-align: center;
+      }
+      .group-filters select option {
+        background-color: #6f0491;
+      }
+
+      main a {
+        text-decoration: none;
+      }
+      .hotel-cont {
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .hotel-item {
+        width: 400px;
+        height: 470px;
+        background-color: #772687c7;
+        padding: 20px;
+        box-shadow: 0px 2px 3px 2px #000000;
+        transition: all 0.4s;
+      }
+      .hotel-cont a {
+        margin: 55px;
+      }
+      .hotel-img {
+        width: 100%;
+        height: 270px;
+      }
+      .hotel-img img {
+        width: inherit;
+        height: inherit;
+      }
+
+      .hotel-info {
+        width: 100%;
+        height: 200px;
+      }
+      .hotel-label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        text-shadow: 2px 3px 3px black;
+      }
+      .hotel-name {
+        text-align: center;
+        font-size: 24px;
+        padding: 20px 0px;
+        font-weight: 600;
+        color: #eddeea;
+      }
+      .hotel-rate {
+        text-align: center;
+        color: gold;
+      }
+      .hotel-label {
+        text-align: center;
+        font-size: 20px;
+        padding: 5px 10px;
+        color: #f7d8f5;
+      }
+      .hotel-item:hover {
+        transform: scale(1.1);
+        background: linear-gradient(
+          270deg,
+          rgb(126 39 237) 0%,
+          rgb(56 36 161) 35% 65%,
+          rgb(126 39 237) 100%
+        );
+      }
+      @media only screen and (max-width: 1550px) {
+        body {
+          min-width: 900px;
+        }
+        main {
+          width: 650px;
+          padding: 50px;
+        }
+        .hotel-cont a {
+          margin: 20px auto;
+        }
+        main a {
+          margin: 0px auto;
+          text-decoration: none;
+          color: none;
+        }
+        .group-filters {
+          padding: 10px 12px;
+        }
+        .group-filters label {
+          font-size: 18px;
+        }
+      }
+      @media only screen and (min-width: 1550px) {
+        main {
+          width: 1100px;
+        }
+        .hotel-cont a {
+          margin: 55px;
+        }
+      }
+      @media only screen and (min-width: 1920px) {
+        main {
+          width: 1650px;
+        }
+        .hotel-cont a {
+          margin: 55px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li class="menu-item"><a href="/">Strona główna</a></li>
+          <li class="menu-item"><a href="/rejestracja">Rejestracja</a></li>
+          <li class="menu-item"><a href="/logowanie">Logowanie</a></li>
+        </ul>
+      </nav>
+      <div class="header-title">
+        <h1><span>Wyszukiwarka</span><br /><span>hoteli</span></h1>
+      </div>
+    </header>
+    <main>
+      <div id="filters">
+        <div class="group-filters">
+          <label for="name-filter"> Szukaj po nazwie: </label>
+          <input type="text" id="name-filter" />
+        </div>
+        <div class="group-filters">
+          <label for="place-filter"> Szukaj po miejscowości: </label>
+          <input type="text" id="place-filter" />
+        </div>
+        <div class="group-filters">
+          <label for="price-filter"> Szukaj po cenie: </label>
+          <select id="price-filter">
+            <option value="">Wszystkie</option>
+            <option value="1">Poniżej 50zł</option>
+            <option value="2">50zł - 100zł</option>
+            <option value="3">100zł - 200zł</option>
+            <option value="4">Powyżej 200zł</option>
+          </select>
+        </div>
+      </div>
+      <hr />
+      <div class="hotel-cont">
+        {html}
+      </div>
+    </main>
+    <footer>
+      <hr />
+      <div class="footer-items">Igor Łysio</div>
+      <div class="footer-items">Adrian Oleksy</div>
+      <div class="footer-items">Mariusz Perzyński</div>
+    </footer>
+    <script>
+      const nameFilter = document.getElementById("name-filter");
+      const placeFilter = document.getElementById("place-filter");
+      const priceFilter = document.getElementById("price-filter");
+      const hotelList = document.querySelector(".hotel-cont");
+
+      nameFilter.addEventListener("input", filterHotels);
+      placeFilter.addEventListener("input", filterHotels);
+      priceFilter.addEventListener("change", filterHotels);
+
+      function filterHotels() {
+        const selectedPriceRange = priceFilter.value;
+
+        const hotels = hotelList.querySelectorAll(".hotel-item");
+        hotels.forEach((hotel) => {
+          const name = hotel.querySelector(".hotel-name").textContent;
+          const place = hotel.querySelector(".hotel-place").textContent;
+          const price = Number(
+            hotel
+              .querySelector(".hotel-price")
+              .textContent.replace(/[^0-9\.]+/g, "")
+          );
+          const matchesNameFilter = name
+            .toLowerCase()
+            .includes(nameFilter.value.toLowerCase());
+          const matchesPlaceFilter = place
+            .toLowerCase()
+            .includes(placeFilter.value.toLowerCase());
+          const matchesPriceFilter =
+            selectedPriceRange === "" ||
+            (selectedPriceRange === "1" && price < 50) ||
+            (selectedPriceRange === "2" && price >= 50 && price <= 100) ||
+            (selectedPriceRange === "3" && price >= 100 && price <= 200) ||
+            (selectedPriceRange === "4" && price > 200);
+          if (matchesNameFilter && matchesPriceFilter && matchesPlaceFilter) {
+            hotel.parentElement.style.display = "block";
+          } else {
+            hotel.parentElement.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

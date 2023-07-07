@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      min-height: 100vh;
+      background: linear-gradient(169deg,
+          rgba(126, 18, 213, 1) 0%,
+          rgba(72, 7, 88, 1) 25%,
+          rgba(72, 7, 88, 1) 75%,
+          rgba(126, 18, 213, 1) 100%);
+      font-family: "Barlow Condensed", sans-serif;
+    }
+
+    header {
+      width: 100%;
+      display: flex;
+      position: relative;
+      flex-direction: column;
+    }
+
+    nav {
+      width: 100%;
+    }
+
+    nav ul {
+      margin: 0px;
+      text-decoration: none;
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .menu-item a {
+      color: white;
+      display: block;
+      text-decoration: none;
+      font-size: 24px;
+      padding: 15px;
+      font-weight: 600;
+      position: relative;
+      transition: all 0.4s;
+    }
+
+    .menu-item a::after {
+      content: "";
+      width: 0px;
+      height: 7px;
+      background: linear-gradient(90deg,
+          rgba(48, 213, 18, 1) 0%,
+          rgba(25, 88, 7, 1) 50%,
+          rgba(48, 213, 18, 1) 100%);
+      position: absolute;
+      border-radius: 10px;
+      left: 50%;
+      bottom: 50%;
+      transform: translate(-50%, 350%);
+      transition: all 0.4s;
+    }
+
+    .menu-item a:hover {
+      color: greenyellow;
+    }
+
+    .menu-item a:hover::after {
+      width: 80%;
+    }
+
+    .header-title {
+      font-size: 30px;
+      margin-left: 50px;
+      margin-bottom: 20px;
+    }
+
+    .header-title h1 {
+      margin: 0px;
+    }
+
+    .header-title span:nth-child(1) {
+      color: #a634d3;
+      text-shadow: 3px -1px 5px black;
+      -webkit-text-stroke-color: black;
+      -webkit-text-stroke-width: 2px;
+    }
+
+    .header-title span:nth-child(3) {
+      color: transparent;
+      -webkit-text-stroke: #ce4bf1;
+      -webkit-text-stroke-width: 2px;
+    }
+
+    footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    footer hr {
+      width: 90%;
+      border: 3px solid #9a00cb;
+      margin: 40px 0 20px 0;
+      border-radius: 5px;
+    }
+
+    footer .footer-items {
+      color: #f5b8ff;
+      font-size: 24px;
+      text-shadow: 3px -1px 5px black;
+      padding: 5px;
+    }
+
+    main {
+      margin: auto;
+      height: 900px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form {
+      background-color: rgb(145 95 165 / 70%);
+      padding: 20px 20px;
+      width: 100%;
+      max-width: 400px;
+      box-sizing: border-box;
+      border-radius: 5px;
+      box-shadow: 0px 4px 10px 2px #000;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .form-title {
+      color: white;
+      text-shadow: 3px 3px 2px black;
+      margin-bottom: 30px;
+    }
+
+    .reg-info {
+      color: white;
+    }
+
+    .reg-info a {
+      color: #fe96ff;
+      text-decoration: none;
+      text-shadow: 2px 2px 2px black;
+    }
+
+    .input-group {
+      margin-bottom: 25px;
+      position: relative;
+      width: 70%;
+    }
+
+    .input {
+      padding: 10px 10px 5px 10px;
+      width: 100%;
+      max-width: 400px;
+      box-sizing: border-box;
+      outline: none;
+      border: none;
+      background: none;
+      color: white;
+      font-size: 16px;
+      border-bottom: 2px solid #40044f;
+      transition: 0.3s;
+    }
+
+    .placeholder {
+      position: absolute;
+      text-shadow: 2px 2px 1px black;
+      top: 10px;
+      left: 10px;
+      font-size: 18px;
+      padding: 0px;
+      color: #ffc2ee;
+      transition: 0.3s;
+      pointer-events: none;
+    }
+
+    .input:valid~.placeholder,
+    .input:focus~.placeholder {
+      top: -14px;
+    }
+
+    .input:focus~.placeholder {
+      color: #1af15e;
+    }
+
+    .input:focus {
+      border-bottom: 2px solid #1af15e;
+    }
+
+    .rej-button {
+      width: 120px;
+      height: 30px;
+      background-color: #8315b1;
+      border: 1px solid black;
+      font-size: 18px;
+      font-weight: 700;
+      color: #d4c8d9;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .rej-button:hover {
+      background-color: #c69dcd;
+      border: 1px solid white;
+      color: #000000;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li class="menu-item"><a href="/">Strona główna</a></li>
+        <li class="menu-item"><a href="/rejestracja">Rejestracja</a></li>
+        <li class="menu-item"><a href="/logowanie">Logowanie</a></li>
+      </ul>
+    </nav>
+    <div class="header-title">
+      <h1><span>Wyszukiwarka</span><br /><span>hoteli</span></h1>
+    </div>
+  </header>
+  <main>
+    <form action="/rejestracja" method="post" class="form">
+      <h1 class="form-title">Załóż konto!</h1>
+      <div class="input-group">
+        <input type="text" class="input" name="user" id="user" required />
+        <div class="placeholder">Login</div>
+      </div>
+      <div class="input-group">
+        <input type="text" class="input" name="name" id="name" required />
+        <div class="placeholder">Imie</div>
+      </div>
+      <div class="input-group">
+        <input type="text" class="input" name="lastName" id="lastName" required />
+        <div class="placeholder">Nazwisko</div>
+      </div>
+      <div class="input-group">
+        <input type="password" class="input" name="password" id="password" required />
+        <div class="placeholder">Hasło</div>
+      </div>
+      <div class="error-info"></div>
+      <input type="submit" class="rej-button" value="Rejestruj" />
+      <p class="reg-info">Posiadasz już konto? <a href="logowanie.html">Zaloguj się</a></p>
+    </form>
+  </main>
+  <footer>
+    <hr />
+    <div class="footer-items">Igor Łysio</div>
+    <div class="footer-items">Adrian Oleksy</div>
+    <div class="footer-items">Mariusz Perzyński</div>
+  </footer>
+  <script></script>
+</body>
+
+</html>

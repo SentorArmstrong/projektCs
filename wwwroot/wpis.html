@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        min-height: 100vh;
+        background: linear-gradient(
+          169deg,
+          rgba(126, 18, 213, 1) 0%,
+          rgba(72, 7, 88, 1) 25%,
+          rgba(72, 7, 88, 1) 75%,
+          rgba(126, 18, 213, 1) 100%
+        );
+        font-family: "Barlow Condensed", sans-serif;
+      }
+      header {
+        width: 100%;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+      }
+      nav {
+        width: 100%;
+      }
+      nav ul {
+        margin: 0px;
+        text-decoration: none;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .menu-item a {
+        color: white;
+        display: block;
+        text-decoration: none;
+        font-size: 24px;
+        padding: 15px;
+        font-weight: 600;
+        position: relative;
+        transition: all 0.4s;
+      }
+      .menu-item a::after {
+        content: "";
+        width: 0px;
+        height: 7px;
+        background: linear-gradient(
+          90deg,
+          rgba(48, 213, 18, 1) 0%,
+          rgba(25, 88, 7, 1) 50%,
+          rgba(48, 213, 18, 1) 100%
+        );
+        position: absolute;
+        border-radius: 10px;
+        left: 50%;
+        bottom: 50%;
+        transform: translate(-50%, 350%);
+        transition: all 0.4s;
+      }
+      .menu-item a:hover {
+        color: greenyellow;
+      }
+      .menu-item a:hover::after {
+        width: 80%;
+      }
+      .header-title {
+        font-size: 30px;
+        margin-left: 50px;
+        margin-bottom: 20px;
+      }
+      .header-title h1 {
+        margin: 0px;
+      }
+      .header-title span:nth-child(1) {
+        color: #a634d3;
+        text-shadow: 3px -1px 5px black;
+        -webkit-text-stroke-color: black;
+        -webkit-text-stroke-width: 2px;
+      }
+      .header-title span:nth-child(3) {
+        color: transparent;
+        -webkit-text-stroke: #ce4bf1;
+        -webkit-text-stroke-width: 2px;
+      }
+      footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      footer hr {
+        width: 90%;
+        border: 3px solid #9a00cb;
+        margin: 40px 0 20px 0;
+        border-radius: 5px;
+      }
+      footer .footer-items {
+        color: #f5b8ff;
+        font-size: 24px;
+        text-shadow: 3px -1px 5px black;
+        padding: 5px;
+      }
+      main {
+        margin: auto;
+        width: 1100px;
+        min-height: 600px;
+        display: flex;
+        flex-direction: column;
+        padding: 40px;
+      }
+      .hotel-title {
+        text-align: center;
+        background-color: #772687c7;
+        box-shadow: 0px 4px 10px 3px black;
+      }
+      .hotel-title h1 {
+        color: white;
+        text-shadow: 0 0 6px black;
+      }
+      .hotel-top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 2em 0;
+      }
+      .hotel-left {
+        background-color: rgb(145 95 165 / 70%);
+        width: calc(100% / 3);
+        padding: 20px;
+        box-shadow: 0px 1px 10px 3px black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      .hotel-right {
+        width: 50%;
+        background-color: rgb(145 95 165 / 70%);
+        height: fit-content;
+        padding: 20px;
+        box-shadow: 0px 1px 10px 3px black;
+      }
+      .hotel-right img {
+        width: 100%;
+        display: block;
+        cursor: pointer;
+        box-shadow: 0px 4px 10px 1px black;
+        transition: all 0.3s;
+      }
+      .hotel-right img:hover {
+        transform: scale(1.02);
+      }
+      .left-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .left-label {
+        font-size: 24px;
+        color: #f503ec;
+        text-shadow: -1px 1px 5px black;
+      }
+      .left-val {
+        color: white;
+        font-size: 20px;
+        text-shadow: 0 0 6px black;
+      }
+      .rate {
+        color: gold;
+        font-size: 20px;
+        text-shadow: 0 0 6px black;
+      }
+      .hotel-imgs {
+        display: flex;
+        flex-direction: row;
+        background-color: #772687c7;
+        width: 100%;
+        box-shadow: 0px 4px 10px 3px black;
+      }
+      .hotel-img {
+        padding: 10px;
+        width: 20%;
+      }
+      .hotel-img img {
+        width: 100%;
+        display: block;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0px 4px 10px 1px black;
+      }
+      .hotel-img img:hover {
+        transform: scale(1.05);
+      }
+      .hotel-info {
+        background-color: rgb(145 95 165 / 70%);
+        width: 100%;
+        margin: 32px 0;
+        box-shadow: 0px 1px 10px 3px black;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        box-sizing: border-box;
+      }
+      .info-cont {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .info-titles {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        font-size: 24px;
+        text-align: center;
+        color: #f503ec;
+        text-shadow: -1px 1px 5px black;
+      }
+      .best-title {
+        width: 35%;
+      }
+      .desc-title {
+        width: 50%;
+      }
+      .hotel-best {
+        width: 35%;
+        color: white;
+        font-size: 20px;
+        text-shadow: 0 0 6px black;
+      }
+      .hotel-desc {
+        width: 50%;
+        text-align: center;
+        color: white;
+        font-size: 18px;
+        text-shadow: 0 0 6px black;
+      }
+      .hotel-map {
+        box-sizing: border-box;
+        width: 100%;
+        height: 500px;
+        padding: 20px;
+        background-color: #772687c7;
+        box-shadow: 0px 4px 10px 3px black;
+      }
+      .hotel-map iframe {
+        width: 100%;
+        height: 100%;
+      }
+      .show-img {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        display: none;
+        background-color: #772687c7;
+      }
+      .show-img-cont {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 20px;
+        max-width: 1200px;
+        max-height: 1000px;
+        border-radius: 20px;
+        background-color: #772687;
+        transform: translateX(-50%) translateY(-50%);
+        box-shadow: 0px 4px 10px 3px black;
+      }
+      .show-img-cont img {
+        box-shadow: 0px 0px 10px 3px black;
+        display: block;
+      }
+      #button-img-left {
+        position: absolute;
+        left: 50px;
+        top: 50%;
+        width: 70px;
+        height: 70px;
+        border: none;
+        background-color: rgb(145 95 165 / 70%);
+        transform: translateY(-50%);
+        border-radius: 50%;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+      #button-img-right {
+        position: absolute;
+        right: 50px;
+        top: 50%;
+        width: 70px;
+        height: 70px;
+        border: none;
+        transform: translateY(-50%);
+        background-color: rgb(145 95 165 / 70%);
+        border-radius: 50%;
+        transition: all 0.5s;
+        cursor: pointer;
+      }
+      #button-img-close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 70px;
+        height: 70px;
+        border: none;
+        background-color: rgb(145 95 165 / 70%);
+        border-bottom-left-radius: 50%;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+      .img-info {
+        position: absolute;
+        right: 50%;
+        top: 20px;
+        width: 70px;
+        height: 30px;
+        border: none;
+        background-color: rgb(145 95 165 / 70%);
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        transform: translateX(50%);
+        text-align: center;
+        font-size: 22px;
+        font-weight: 600;
+        color: white;
+        padding: 5px 10px;
+        text-shadow: 0px 0px 4px black;
+      }
+      #button-img-left:hover,
+      #button-img-right:hover,
+      #button-img-close:hover {
+        background-color: #5bff02bd;
+      }
+      .icons {
+        font-size: 40px;
+        font-weight: 800;
+      }
+      @media only screen and (max-width: 1200px) {
+        body {
+          min-width: 1200px;
+        }
+        .show-img-cont {
+          max-width: 550px;
+          max-height: 700px;
+        }
+        .show-img-cont img {
+          width: -webkit-fill-available;
+          height: -webkit-fill-available;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li class="menu-item"><a href="/">Strona główna</a></li>
+          <li class="menu-item"><a href="/rejestracja">Rejestracja</a></li>
+          <li class="menu-item"><a href="/logowanie">Logowanie</a></li>
+        </ul>
+      </nav>
+      <div class="header-title">
+        <h1><span>Wyszukiwarka</span><br /><span>hoteli</span></h1>
+      </div>
+    </header>
+    <main>
+      <div class="hotel-title"><h1><span id="name">{name}</span></h1></div>
+      <div class="hotel-top">
+        <div class="hotel-left">
+          <div class="left-group">
+            <div class="left-label">Miejscowość:</div>
+            <p class="place left-val"><span id="place">{place}</span></p>
+          </div>
+          <div class="left-group">
+            <div class="left-label">Cena za dobe:</div>
+            <p class="price left-val"><span id="price">{price}</span><span> zł</span></p>
+          </div>
+          <div class="left-group">
+            <div class="left-label">Ocena:</div>
+            <p class="rate"><span id="rate">{rate}</span></p>
+          </div>
+        </div>
+        <div class="hotel-right">
+          <img
+            src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/339008917.jpg?k=cf204230bfee436cc523d115686834fd8be0de655b0dfb003ce9f140665820c2&o=&hp=1"
+            alt="Główne zdjęcie hotelu"
+            class="pic"
+          />
+        </div>
+      </div>
+      <div class="hotel-imgs">
+        <div class="hotel-img">
+          <img
+            src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/356182520.jpg?k=624f78ce8b88ea0179e8fba79ff58898f81ab883a3e69b8bf9bbc6ca5a5304a1&o=&hp=1"
+            alt=""
+            class="pic"
+          />
+        </div>
+        <div class="hotel-img">
+          <img
+            src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/356182067.jpg?k=3625fd6bb79a8e86c6b69a006e1e03bf70b6b5e8dcd3c92547b313a06f8a4e1d&o=&hp=1"
+            alt=""
+            class="pic"
+          />
+        </div>
+        <div class="hotel-img">
+          <img
+            src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/339008593.jpg?k=692997501121e19a55ed2a6465b631d9fb6c53be141a97fcc551ed4677035ac8&o=&hp=1"
+            alt=""
+            class="pic"
+          />
+        </div>
+        <div class="hotel-img">
+          <img
+            src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/356182535.jpg?k=216f76bb314aa048e3950a316964e30eb51dae0e5c9ca7b542741fb9f4260e93&o=&hp=1"
+            alt=""
+            class="pic"
+          />
+        </div>
+        <div class="hotel-img">
+          <img
+            src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/356182694.jpg?k=8d3bb457eccde0132932f5358d234ed6b8dad94c2326e010adab8c2301b0f01e&o=&hp=1"
+            alt=""
+            class="pic"
+          />
+        </div>
+      </div>
+      <div class="hotel-info">
+        <div class="info-titles">
+          <div class="desc-title">Opis:</div>
+        </div>
+        <div class="info-cont">
+          <div class="hotel-desc">
+            <span id="desc">{desc}</span>
+          </div>
+        </div>
+      </div>
+      <div class="hotel-map">
+        <iframe
+          src="{map}"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </main>
+    <footer>
+      <hr />
+      <div class="footer-items">Igor Łysio</div>
+      <div class="footer-items">Adrian Oleksy</div>
+      <div class="footer-items">Mariusz Perzyński</div>
+    </footer>
+    <div class="show-img">
+      <div class="show-img-cont">
+        <img src="" alt="" />
+        <button id="button-img-left">
+          <span class="material-symbols-outlined icons"> arrow_back </span>
+        </button>
+        <button id="button-img-right">
+          <span class="material-symbols-outlined icons"> arrow_forward </span>
+        </button>
+        <button id="button-img-close">
+          <span class="material-symbols-outlined icons close"> close </span>
+        </button>
+        <div class="img-info"></div>
+      </div>
+    </div>
+    <script>
+      const btnLeft = document.querySelector("#button-img-left");
+      const btnRight = document.querySelector("#button-img-right");
+      const cont = document.querySelector(".show-img");
+      const imgs = document.querySelectorAll(".pic");
+      console.log(imgs);
+      imgs.forEach((e) => {
+        e.addEventListener("click", () => {
+          showImg(e);
+        });
+      });
+
+      btnLeft.addEventListener("click", changeImg);
+      btnRight.addEventListener("click", changeImg);
+      cont.addEventListener("click", closeShowImg);
+      function showImg(id) {
+        const index = [].indexOf.call(imgs, id);
+        const sr = imgs[index].src;
+        let next;
+        let prev;
+        if (typeof imgs[index + 1] === "undefined") {
+          next = 0;
+          prev = index - 1;
+        } else if (index == 0) {
+          next = index + 1;
+          prev = imgs.length - 1;
+        } else {
+          next = index + 1;
+          prev = index - 1;
+        }
+        btnRight.dataset.id = next;
+        btnLeft.dataset.id = prev;
+        const mainImg = document.querySelector(".show-img-cont img");
+        mainImg.src = sr;
+        const imgInfo = document.querySelector(".img-info");
+        imgInfo.textContent = `${index + 1}/${imgs.length}`;
+        document.querySelector(".show-img").style.display = "block";
+      }
+      function changeImg(e) {
+        const index = +this.dataset.id;
+        const sr = imgs[index].src;
+        let next;
+        let prev;
+        if (typeof imgs[index + 1] === "undefined") {
+          next = 0;
+          prev = index - 1;
+        } else if (index == 0) {
+          next = index + 1;
+          prev = imgs.length - 1;
+        } else {
+          next = index + 1;
+          prev = index - 1;
+        }
+        btnRight.dataset.id = next;
+        btnLeft.dataset.id = prev;
+        const mainImg = document.querySelector(".show-img-cont img");
+        const imgInfo = document.querySelector(".img-info");
+        imgInfo.textContent = `${index + 1}/${imgs.length}`;
+        mainImg.src = sr;
+      }
+      function closeShowImg(e) {
+        const a =
+          e.target.classList.contains("show-img") ||
+          e.target.classList.contains("close") ||
+          Boolean(e.target.id == "button-img-close");
+        if (a) {
+          cont.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

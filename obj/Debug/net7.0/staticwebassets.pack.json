@@ -1,0 +1,53 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\48604\\Documents\\C#\\wwwroot\\error.html",
+      "PackagePath": "staticwebassets\\error.html"
+    },
+    {
+      "Id": "C:\\Users\\48604\\Documents\\C#\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\48604\\Documents\\C#\\wwwroot\\logowanie.html",
+      "PackagePath": "staticwebassets\\logowanie.html"
+    },
+    {
+      "Id": "C:\\Users\\48604\\Documents\\C#\\wwwroot\\profil-dodawanie.html",
+      "PackagePath": "staticwebassets\\profil-dodawanie.html"
+    },
+    {
+      "Id": "C:\\Users\\48604\\Documents\\C#\\wwwroot\\profil-edycja.html",
+      "PackagePath": "staticwebassets\\profil-edycja.html"
+    },
+    {
+      "Id": "C:\\Users\\48604\\Documents\\C#\\wwwroot\\profil.html",
+      "PackagePath": "staticwebassets\\profil.html"
+    },
+    {
+      "Id": "C:\\Users\\48604\\Documents\\C#\\wwwroot\\rejestracja.html",
+      "PackagePath": "staticwebassets\\rejestracja.html"
+    },
+    {
+      "Id": "C:\\Users\\48604\\Documents\\C#\\wwwroot\\wpis.html",
+      "PackagePath": "staticwebassets\\wpis.html"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.C#.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.C#.props",
+      "PackagePath": "build\\C#.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.C#.props",
+      "PackagePath": "buildMultiTargeting\\C#.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.C#.props",
+      "PackagePath": "buildTransitive\\C#.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

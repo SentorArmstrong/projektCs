@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        min-height: 100vh;
+        background: linear-gradient(
+          169deg,
+          rgba(126, 18, 213, 1) 0%,
+          rgba(72, 7, 88, 1) 25%,
+          rgba(72, 7, 88, 1) 75%,
+          rgba(126, 18, 213, 1) 100%
+        );
+        font-family: "Barlow Condensed", sans-serif;
+      }
+      header {
+        width: 100%;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+      }
+      nav {
+        width: 100%;
+      }
+      nav ul {
+        margin: 0px;
+        text-decoration: none;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .menu-item a {
+        color: white;
+        display: block;
+        text-decoration: none;
+        font-size: 24px;
+        padding: 15px;
+        font-weight: 600;
+        position: relative;
+        transition: all 0.4s;
+      }
+      .menu-item a::after {
+        content: "";
+        width: 0px;
+        height: 7px;
+        background: linear-gradient(
+          90deg,
+          rgba(48, 213, 18, 1) 0%,
+          rgba(25, 88, 7, 1) 50%,
+          rgba(48, 213, 18, 1) 100%
+        );
+        position: absolute;
+        border-radius: 10px;
+        left: 50%;
+        bottom: 50%;
+        transform: translate(-50%, 350%);
+        transition: all 0.4s;
+      }
+      .menu-item a:hover {
+        color: greenyellow;
+      }
+      .menu-item a:hover::after {
+        width: 80%;
+      }
+      .header-title {
+        font-size: 30px;
+        margin-left: 50px;
+        margin-bottom: 20px;
+      }
+      .header-title h1 {
+        margin: 0px;
+      }
+      .header-title span:nth-child(1) {
+        color: #a634d3;
+        text-shadow: 3px -1px 5px black;
+        -webkit-text-stroke-color: black;
+        -webkit-text-stroke-width: 2px;
+      }
+      .header-title span:nth-child(3) {
+        color: transparent;
+        -webkit-text-stroke: #ce4bf1;
+        -webkit-text-stroke-width: 2px;
+      }
+      footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      footer hr {
+        width: 90%;
+        border: 3px solid #9a00cb;
+        margin: 40px 0 20px 0;
+        border-radius: 5px;
+      }
+      footer .footer-items {
+        color: #f5b8ff;
+        font-size: 24px;
+        text-shadow: 3px -1px 5px black;
+        padding: 5px;
+      }
+      main {
+        margin: auto;
+        height: 900px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .form {
+        background-color: rgb(130 59 159);
+        padding: 20px 20px;
+        width: 100%;
+        max-width: 1000px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        box-shadow: 0px 4px 10px 2px #000;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      .form-title {
+        color: white;
+        text-shadow: 3px 3px 2px black;
+        margin-bottom: 30px;
+      }
+      .cont-all {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+      }
+      .cont-items {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .input-group {
+        margin-bottom: 25px;
+        position: relative;
+        width: 70%;
+      }
+      .input {
+        padding: 12px 12px 5px 12px;
+        width: 100%;
+        height: 50px;
+        max-width: 400px;
+        box-sizing: border-box;
+        outline: none;
+        background: none;
+        border: 3px solid #ab5fa9;
+        border-radius: 10px;
+        color: white;
+        font-size: 16px;
+        transition: 0.3s;
+      }
+      textarea {
+        padding: 12px 12px 5px 12px;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 90px;
+        max-height: 90px;
+        box-sizing: border-box;
+        outline: none;
+        background: none;
+        border: 3px solid #ab5fa9;
+        border-radius: 10px;
+        color: white;
+        font-size: 16px;
+        transition: 0.3s;
+      }
+      .placeholder {
+        display: block;
+        background-color: rgb(130 59 159);
+        position: absolute;
+        text-shadow: 2px 2px 1px black;
+        top: -10px;
+        left: 20px;
+        font-size: 18px;
+        padding: 0px 5px;
+        color: #f9d4ff;
+        transition: 0.3s;
+        pointer-events: none;
+      }
+      .input:focus ~ .placeholder {
+        color: #1af15e;
+      }
+      .input:focus {
+        border: 2px solid #1af15e;
+      }
+      textarea:focus ~ .placeholder {
+        color: #1af15e;
+      }
+      textarea:focus {
+        border: 2px solid #1af15e;
+      }
+      .item-button {
+        width: 150px;
+        height: 40px;
+        background-color: #8315b1;
+        border: 1px solid black;
+        font-size: 18px;
+        font-weight: 700;
+        color: #d4c8d9;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .item-button:hover {
+        background-color: #c69dcd;
+        border: 1px solid white;
+        color: #000000;
+      }
+      @media only screen and (max-width: 1200px) {
+        body {
+          min-width: 700px;
+        }
+        main {
+          height: auto;
+        }
+        .form {
+          max-width: 500px;
+        }
+        .cont-all {
+          flex-direction: column;
+        }
+        .cont-items {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li class="menu-item"><a href="/">Strona główna</a></li>
+          <li class="menu-item"><a href="/rejestracja">Rejestracja</a></li>
+          <li class="menu-item"><a href="/logowanie">Logowanie</a></li>
+        </ul>
+      </nav>
+      <div class="header-title">
+        <h1><span>Wyszukiwarka</span><br /><span>hoteli</span></h1>
+      </div>
+    </header>
+    <main>
+      <form action="/profil-dodawanie?id={id}" method="post" class="form">
+        <h1 class="form-title">Uzupełnij dane hotelu</h1>
+        <div class="cont-all">
+          <div class="cont-items">
+            <div class="input-group">
+              <input type="text" class="input" name="name" id="name" required />
+              <div class="placeholder">Nazwa hotelu</div>
+            </div>
+            <div class="input-group">
+              <input
+                type="text"
+                class="input"
+                name="place"
+                id="place"
+                required
+              />
+              <div class="placeholder">Miejscowość</div>
+            </div>
+            <div class="input-group">
+              <input
+                type="number"
+                class="input"
+                name="price"
+                id="price"
+                required
+              />
+              <div class="placeholder">Cena</div>
+            </div>
+            <div class="input-group">
+              <input
+                type="number"
+                class="input"
+                name="rate"
+                id="rate"
+                required
+              />
+              <div class="placeholder">Ocena</div>
+            </div>
+            <div class="input-group">
+              <textarea name="faci" id="faci" required></textarea>
+              <div class="placeholder">Udogodnienia</div>
+            </div>
+            <div class="input-group">
+              <textarea name="desc" id="desc" required></textarea>
+              <div class="placeholder">Opis</div>
+            </div>
+          </div>
+          <div class="cont-items">
+            <div class="input-group">
+              <input type="text" class="input" name="map" id="map" />
+              <div class="placeholder">Link do mapy</div>
+            </div>
+            <div class="input-group">
+              <input
+                type="text"
+                class="input"
+                name="mainImg"
+                id="mainImg"
+                required
+              />
+              <div class="placeholder">Główne zdjęcie</div>
+            </div>
+            <div class="input-group">
+              <input type="text" class="input" name="miniImg" class="miniImg" />
+              <div class="placeholder">Zdjęcie małe 1</div>
+            </div>
+            <div class="input-group">
+              <input type="text" class="input" name="miniImg" class="miniImg" />
+              <div class="placeholder">Zdjęcie małe 2</div>
+            </div>
+            <div class="input-group">
+              <input type="text" class="input" name="miniImg" class="miniImg" />
+              <div class="placeholder">Zdjęcie małe 3</div>
+            </div>
+            <div class="input-group">
+              <input type="text" class="input" name="miniImg" class="miniImg" />
+              <div class="placeholder">Zdjęcie małe 4</div>
+            </div>
+            <div class="input-group">
+              <input type="text" class="input" name="miniImg" class="miniImg" />
+              <div class="placeholder">Zdjęcie małe 5</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="error-info"></div>
+        <input type="submit" class="item-button" value="Zapisz" />
+      </form>
+    </main>
+    <footer>
+      <hr />
+      <div class="footer-items">Igor Łysio</div>
+      <div class="footer-items">Adrian Oleksy</div>
+      <div class="footer-items">Mariusz Perzyński</div>
+    </footer>
+    <script></script>
+  </body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        min-height: 100vh;
+        background: linear-gradient(
+          169deg,
+          rgba(126, 18, 213, 1) 0%,
+          rgba(72, 7, 88, 1) 25%,
+          rgba(72, 7, 88, 1) 75%,
+          rgba(126, 18, 213, 1) 100%
+        );
+        font-family: "Barlow Condensed", sans-serif;
+      }
+      header {
+        width: 100%;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+      }
+      nav {
+        width: 100%;
+      }
+      nav ul {
+        margin: 0px;
+        text-decoration: none;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .menu-item a {
+        color: white;
+        display: block;
+        text-decoration: none;
+        font-size: 24px;
+        padding: 15px;
+        font-weight: 600;
+        position: relative;
+        transition: all 0.4s;
+      }
+      .menu-item a::after {
+        content: "";
+        width: 0px;
+        height: 7px;
+        background: linear-gradient(
+          90deg,
+          rgba(48, 213, 18, 1) 0%,
+          rgba(25, 88, 7, 1) 50%,
+          rgba(48, 213, 18, 1) 100%
+        );
+        position: absolute;
+        border-radius: 10px;
+        left: 50%;
+        bottom: 50%;
+        transform: translate(-50%, 350%);
+        transition: all 0.4s;
+      }
+      .menu-item a:hover {
+        color: greenyellow;
+      }
+      .menu-item a:hover::after {
+        width: 80%;
+      }
+      .header-title {
+        font-size: 30px;
+        margin-left: 50px;
+        margin-bottom: 20px;
+      }
+      .header-title h1 {
+        margin: 0px;
+      }
+      .header-title span:nth-child(1) {
+        color: #a634d3;
+        text-shadow: 3px -1px 5px black;
+        -webkit-text-stroke-color: black;
+        -webkit-text-stroke-width: 2px;
+      }
+      .header-title span:nth-child(3) {
+        color: transparent;
+        -webkit-text-stroke: #ce4bf1;
+        -webkit-text-stroke-width: 2px;
+      }
+      footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      footer hr {
+        width: 90%;
+        border: 3px solid #9a00cb;
+        margin: 40px 0 20px 0;
+        border-radius: 5px;
+      }
+      footer .footer-items {
+        color: #f5b8ff;
+        font-size: 24px;
+        text-shadow: 3px -1px 5px black;
+        padding: 5px;
+      }
+      main {
+        margin: auto;
+        width: 1100px;
+        min-height: 600px;
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+      }
+      .box-dark {
+        background-color: #772687c7;
+        box-shadow: 0px 4px 10px 3px black;
+      }
+      .box-light {
+        background-color: rgb(145 95 165 / 70%);
+        box-shadow: 0px 1px 10px 3px black;
+      }
+      .ts {
+        text-shadow: 0 0 6px black;
+      }
+      .error-cont {
+        padding: 20px;
+      }
+      .error-title {
+        width: 100%;
+        text-align: center;
+        color: #eed3f1;
+        text-shadow: 4px 3px 3px black;
+      }
+      .error-cont p {
+        font-size: 20px;
+        color: white;
+        text-shadow: 3px 3px 4px black;
+        text-align: center;
+      }
+      .error-cont p a {
+        text-decoration: none;
+        color: #ce4bf1;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li class="menu-item"><a href="/">Strona główna</a></li>
+          <li class="menu-item"><a href="/rejestracja">Rejestracja</a></li>
+          <li class="menu-item"><a href="/logowanie">Logowanie</a></li>
+        </ul>
+      </nav>
+      <div class="header-title">
+        <h1><span>Wyszukiwarka</span><br /><span>hoteli</span></h1>
+      </div>
+    </header>
+    <main>
+      <div class="error-cont box-light">
+        <div class="error-title">
+          <h1>Error 404 - Nie odnaleziono takiej strony!</h1>
+        </div>
+        <p>Wróć na <a href="/">strone główną</a></p>
+      </div>
+    </main>
+    <footer>
+      <hr />
+      <div class="footer-items">Igor Łysio</div>
+      <div class="footer-items">Adrian Oleksy</div>
+      <div class="footer-items">Mariusz Perzyński</div>
+    </footer>
+    <script></script>
+  </body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        min-height: 100vh;
+        background: linear-gradient(
+          169deg,
+          rgba(126, 18, 213, 1) 0%,
+          rgba(72, 7, 88, 1) 25%,
+          rgba(72, 7, 88, 1) 75%,
+          rgba(126, 18, 213, 1) 100%
+        );
+        font-family: "Barlow Condensed", sans-serif;
+      }
+      header {
+        width: 100%;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+      }
+      nav {
+        width: 100%;
+      }
+      nav ul {
+        margin: 0px;
+        text-decoration: none;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .menu-item a {
+        color: white;
+        display: block;
+        text-decoration: none;
+        font-size: 24px;
+        padding: 15px;
+        font-weight: 600;
+        position: relative;
+        transition: all 0.4s;
+      }
+      .menu-item a::after {
+        content: "";
+        width: 0px;
+        height: 7px;
+        background: linear-gradient(
+          90deg,
+          rgba(48, 213, 18, 1) 0%,
+          rgba(25, 88, 7, 1) 50%,
+          rgba(48, 213, 18, 1) 100%
+        );
+        position: absolute;
+        border-radius: 10px;
+        left: 50%;
+        bottom: 50%;
+        transform: translate(-50%, 350%);
+        transition: all 0.4s;
+      }
+      .menu-item a:hover {
+        color: greenyellow;
+      }
+      .menu-item a:hover::after {
+        width: 80%;
+      }
+      .header-title {
+        font-size: 30px;
+        margin-left: 50px;
+        margin-bottom: 20px;
+      }
+      .header-title h1 {
+        margin: 0px;
+      }
+      .header-title span:nth-child(1) {
+        color: #a634d3;
+        text-shadow: 3px -1px 5px black;
+        -webkit-text-stroke-color: black;
+        -webkit-text-stroke-width: 2px;
+      }
+      .header-title span:nth-child(3) {
+        color: transparent;
+        -webkit-text-stroke: #ce4bf1;
+        -webkit-text-stroke-width: 2px;
+      }
+      footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      footer hr {
+        width: 90%;
+        border: 3px solid #9a00cb;
+        margin: 40px 0 20px 0;
+        border-radius: 5px;
+      }
+      footer .footer-items {
+        color: #f5b8ff;
+        font-size: 24px;
+        text-shadow: 3px -1px 5px black;
+        padding: 5px;
+      }
+      main {
+        margin: auto;
+        width: 1100px;
+        min-height: 600px;
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+      }
+      .box-dark {
+        background-color: #772687c7;
+        box-shadow: 0px 4px 10px 3px black;
+      }
+      .box-light {
+        background-color: rgb(145 95 165 / 70%);
+        box-shadow: 0px 1px 10px 3px black;
+      }
+      .ts {
+        text-shadow: 3px 3px 4px black;
+      }
+      .profil-title {
+        width: 100%;
+        color: white;
+        text-align: center;
+        margin-bottom: 24px;
+      }
+      .p-titles {
+        color: #f5bdff;
+        text-align: center;
+      }
+      .profil-box {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+      }
+      .profil-info {
+        width: 30%;
+        padding: 20px;
+      }
+      .p-info-group {
+        text-align: center;
+      }
+      .p-info-label {
+        color: #eb87eb;
+        font-size: 18px;
+        margin: 12px;
+      }
+      .p-info-data {
+        color: white;
+        font-size: 16px;
+      }
+      .profil-hotels-add {
+        width: 40%;
+        padding: 20px;
+      }
+      .p-hotels-add-info {
+        font-size: 16px;
+        color: white;
+      }
+      .profil-hotels-list {
+        margin-top: 24px;
+      }
+      #btn-add-hotel {
+        width: 180px;
+        height: 40px;
+        background-color: #8315b1;
+        border: 1px solid black;
+        font-size: 18px;
+        font-weight: 700;
+        color: #d4c8d9;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      #btn-add-hotel:hover {
+        background-color: #c69dcd;
+        border: 1px solid white;
+        color: #000000;
+      }
+      .btn-cont {
+        text-align: center;
+      }
+      .p-hotel-list-cont {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .p-hotel-item {
+        display: flex;
+        flex-direction: row;
+        padding: 20px;
+        background-color: #7c53a3;
+        box-shadow: 0px 0px 6px black;
+      }
+      .item-box-img {
+        width: 30%;
+      }
+      .item-box-img img {
+        display: block;
+        width: 100%;
+      }
+      .item-box-info {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 5px;
+      }
+      .item-info-title a {
+        text-decoration: none;
+      }
+      .item-info-data {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        margin: auto;
+      }
+      .item-info-group {
+        display: flex;
+        text-align: center;
+        font-size: 18px;
+        color: white;
+        gap: 16px;
+        column-gap: 5px;
+        align-items: center;
+        flex-direction: column;
+      }
+      .item-label {
+        color: #eb87eb;
+      }
+      .item-info-group p {
+        margin: 0;
+      }
+      #rate {
+        color: gold;
+      }
+      .item-box-buttons {
+        width: 25%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+      .btn {
+        width: 180px;
+        height: 40px;
+        border: 1px solid black;
+        font-size: 18px;
+        font-weight: 700;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .btn-edit {
+        background-color: #8315b1;
+        color: #d4c8d9;
+        transition: 0.3s;
+      }
+      .btn-edit:hover {
+        background-color: #c69dcd;
+        border: 1px solid white;
+        color: #000000;
+      }
+      .btn-delete {
+        background-color: #c10c0c;
+        color: #d4c8d9;
+        transition: 0.3s;
+      }
+      .btn-delete:hover {
+        background-color: #c69dcd;
+        border: 1px solid white;
+        color: #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li class="menu-item"><a href="/">Strona główna</a></li>
+          <li class="menu-item"><a href="/rejestracja">Rejestracja</a></li>
+          <li class="menu-item"><a href="/logowanie">Logowanie</a></li>
+        </ul>
+      </nav>
+      <div class="header-title">
+        <h1><span>Wyszukiwarka</span><br /><span>hoteli</span></h1>
+      </div>
+    </header>
+    <main>
+      <div class="profil-title box-dark ts"><h1>Profil</h1></div>
+      <div class="profil-box">
+        <div class="profil-info box-light ts">
+          <div class="p-info-title p-titles"><h2>Dane użytkownika:</h2></div>
+          <div class="p-info-group">
+            <p class="p-info-label">Nazwa użytkownika:</p>
+            <div class="p-info-data"><span id="login">{login}</span></div>
+          </div>
+          <div class="p-info-group">
+            <p class="p-info-label">Imię:</p>
+            <div class="p-info-data"><span id="name">{name}</span></div>
+          </div>
+          <div class="p-info-group">
+            <p class="p-info-label">Nazwisko:</p>
+            <div class="p-info-data"><span id="lastname">{lastname}</span></div>
+          </div>
+        </div>
+        <div class="profil-hotels-add box-light ts">
+          <div class="p-hotels-add-title p-titles">
+            <h2>Informacje na temat hoteli:</h2>
+          </div>
+          <p class="p-hotels-add-info">
+            Jesteś właścicielem hotelu lub wielu hoteli i chcesz poszerzyć grono
+            swoich potencjalnych klientów? Korzystałeś/aś z usług jakiegoś
+            hotelu i chcesz się z nami podzielić informacjami na jego temat?
+            Dobrze trafiłeś/aś!
+          </p>
+          <p class="p-hotels-add-info">
+            Naciśnij poniższy przycisk, aby dodać na stronę informacje o hotelu.
+          </p>
+          <div class="btn-cont">
+            <a href="/profil-dodawanie?id={id}"><button id="btn-add-hotel">Dodaj hotel!</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="profil-hotels-list box-dark ts">
+        <div class="p-hotel-list-title p-titles">
+          <h2>Lista dodanych hoteli:</h2>
+        </div>
+        <div class="p-hotel-list-cont">
+          <!-- ########-->
+          <!-- Item do wyświetlania dodanych hoteli-->
+          {html}
+          <!-- Item do wyświetlania dodanych hoteli-->
+          <!-- ########-->
+        </div>
+      </div>
+    </main>
+    <footer>
+      <hr />
+      <div class="footer-items">Igor Łysio</div>
+      <div class="footer-items">Adrian Oleksy</div>
+      <div class="footer-items">Mariusz Perzyński</div>
+    </footer>
+    <script></script>
+  </body>
+</html>
